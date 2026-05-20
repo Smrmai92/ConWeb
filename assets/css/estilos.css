@@ -1,0 +1,1877 @@
+/* =========================================================
+   CONWEB - HOJA DE ESTILOS PRINCIPAL
+   ========================================================= */
+
+/* =========================================================
+   1. ESTILOS GENERALES
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F3F6FB;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #F3F6FB;
+    padding-top: 72px;
+}
+
+.contenido {
+    flex: 1;
+    padding: 34px;
+}
+
+
+/* =========================================================
+   2. SIDEBAR / MENÚ LATERAL
+   ========================================================= */
+
+.sidebar {
+    width: 260px;
+    background: #1E4D8C;
+    color: white;
+    padding: 28px 22px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 72px;
+    height: calc(100vh - 72px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sidebar nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: 0.2s;
+    font-weight: 500;
+}
+
+.sidebar nav a:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.sidebar nav a.activo {
+    background-color: #2BB673;
+    color: white;
+}
+
+.sidebar-logo {
+    margin-bottom: 34px;
+    text-align: center;
+    padding: 8px 0;
+}
+
+.sidebar-logo img {
+    max-width: 230px;
+    width: 100%;
+}
+
+.usuario-sidebar {
+    background-color: rgba(255, 255, 255, 0.14);
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.usuario-sidebar p {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.usuario-sidebar strong {
+    display: block;
+    margin-top: 4px;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   3. TOPBAR GENERAL DE LA APLICACIÓN
+   ========================================================= */
+
+.topbar-app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    background-color: #1E4D8C;
+    color: white;
+    padding: 0 18px;
+    border-radius: 0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+.topbar-logo {
+    height: 72px;
+    width: 360px;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+}
+
+.topbar-logo img {
+    width: 600px;
+    max-width: none;
+    height: auto;
+    margin-left: -35px;
+    filter: contrast(1.45) saturate(1.3);
+}
+
+.topbar-buscador {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+.topbar-buscador input {
+    width: 300px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+}
+
+.topbar-usuario {
+    margin-left: auto;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding-right: 12px;
+}
+
+.topbar-usuario:hover {
+    opacity: 0.9;
+}
+
+.usuario-inicial {
+    width: 34px;
+    height: 34px;
+    background-color: #2BB673;
+    color: white;
+    border-radius: 50%;
+    border: 2px solid rgba(31, 41, 55, 0.45);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+    line-height: 34px;
+}
+
+.usuario-nombre {
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+.usuario-foto-topbar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(31, 41, 55, 0.65);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.28);
+}
+
+/* Logo móvil oculto por defecto en escritorio */
+
+.logo-mobile {
+    display: none;
+}
+
+/* Textos móviles ocultos por defecto en escritorio */
+
+.texto-mobile {
+    display: none;
+}
+
+
+/* =========================================================
+   4. CABECERA INTERNA DE CADA PANTALLA
+   ========================================================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: white;
+    padding: 22px 26px;
+    border-radius: 18px;
+    border-left: 6px solid #1E4D8C;
+}
+
+.topbar h1 {
+    font-size: 32px;
+    color: #1E4D8C;
+    margin: 0 0 6px 0;
+}
+
+.topbar p {
+    margin: 0;
+    color: #6B7280;
+}
+
+.resultados-globales {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    width: 300px;
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid #D1D5DB;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+    overflow: hidden;
+    z-index: 3000;
+}
+
+.resultados-globales.oculto {
+    display: none;
+}
+
+.resultado-global-item {
+    display: block;
+    padding: 10px 12px;
+    color: #1F2937;
+    text-decoration: none;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.resultado-global-item:hover {
+    background-color: #F3F6FB;
+}
+
+.resultado-global-item:last-child {
+    border-bottom: none;
+}
+
+.resultado-tipo {
+    display: block;
+    color: #6B7280;
+    font-size: 11px;
+    margin-bottom: 2px;
+}
+
+.resultado-global-vacio {
+    padding: 12px;
+    color: #6B7280;
+    font-size: 13px;
+}
+
+/* =========================================================
+   5. TARJETAS GENERALES
+   ========================================================= */
+
+.tarjeta {
+    background-color: white;
+    border-radius: 18px;
+    padding: 26px;
+    border: 1px solid #E5E7EB;
+    box-shadow: none;
+    margin-bottom: 24px;
+    transition: 0.2s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
+    border-color: #D1D5DB;
+}
+
+.tarjeta h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #1E4D8C;
+    font-size: 24px;
+}
+
+.tarjeta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tarjeta-header h2 {
+    margin-bottom: 6px;
+}
+
+.tarjeta-header p {
+    margin: 0;
+    color: #6B7280;
+}
+
+
+/* =========================================================
+   6. BOTONES
+   ========================================================= */
+
+.btn-principal {
+    background-color: #2BB673;
+    color: white;
+    padding: 13px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    display: inline-block;
+}
+
+.btn-principal:hover {
+    background-color: #249E63;
+    transform: translateY(-1px);
+}
+
+.btn-secundario {
+    background-color: white;
+    color: #1E4D8C;
+    border: 1px solid #1E4D8C;
+    padding: 13px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+    display: inline-block;
+}
+
+.btn-secundario:hover {
+    background-color: #E8F3FF;
+}
+
+.btn-editar {
+    display: inline-block;
+    background-color: #4A90E2;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    margin-right: 6px;
+    transition: 0.2s;
+}
+
+.btn-editar:hover {
+    opacity: 0.85;
+}
+
+.btn-eliminar {
+    background-color: #EF4444;
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.btn-eliminar:hover {
+    opacity: 0.85;
+}
+
+.acciones-formulario {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.acciones-formulario .btn-principal,
+.acciones-formulario .btn-secundario {
+    text-align: center;
+    flex: 1;
+}
+
+.acciones-derecha {
+    justify-content: flex-end;
+}
+
+.acciones-derecha .btn-principal,
+.acciones-derecha .btn-secundario {
+    flex: 0 0 180px;
+}
+
+
+/* =========================================================
+   7. FORMULARIOS
+   ========================================================= */
+
+.formulario-contenedor {
+    max-width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 5px;
+    margin-bottom: 2px;
+    font-weight: bold;
+    color: #1F2937;
+    font-size: 14px;
+}
+
+input,
+textarea,
+select {
+    padding: 8px 11px;
+    border: 1px solid #D1D5DB;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: #4A90E2;
+    box-shadow: 0 4px 12px rgba(30, 77, 140, 0.10);
+}
+
+.ayuda-campo {
+    margin-top: 1px;
+    margin-bottom: 0;
+    color: #6B7280;
+    font-size: 11px;
+}
+
+.campo-error {
+    border-color: #EF4444 !important;
+    background-color: #FEF2F2;
+}
+
+.ayuda-campo.error-inline {
+    color: #B91C1C;
+    font-weight: 500;
+}
+
+#mensaje {
+    color: #6B7280;
+    margin-top: 8px;
+}
+
+#mensaje-formulario {
+    margin-top: 16px;
+    font-weight: bold;
+}
+
+.mensaje-exito {
+    color: #166534;
+    background-color: #DCFCE7;
+    border: 1px solid #86EFAC;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-top: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.mensaje-error {
+    color: #991B1B;
+    background-color: #FEE2E2;
+    border: 1px solid #FCA5A5;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-top: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Formulario en dos columnas para contactos */
+.form-grid-contacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 28px;
+}
+
+.form-grid-contacto > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-grid-contacto input,
+.form-grid-contacto select {
+    width: 100%;
+}
+
+#notas {
+    min-height: 110px;
+    resize: vertical;
+}
+
+
+/* =========================================================
+   8. TABLAS
+   ========================================================= */
+
+.tabla-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+th {
+    text-align: left;
+    background-color: #F3F6FB;
+    color: #1E4D8C;
+    padding: 16px;
+    border-bottom: 1px solid #D1D5DB;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 16px;
+    border-bottom: 1px solid #E5E7EB;
+    background-color: white;
+    vertical-align: middle;
+}
+
+tbody tr:hover td {
+    background-color: #F8FAFC;
+}
+
+td .btn-editar,
+td .btn-eliminar {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+td .btn-editar {
+    margin-right: 8px;
+}
+
+td:last-child,
+th:last-child {
+    white-space: nowrap;
+    width: 170px;
+}
+
+
+/* =========================================================
+   9. BUSCADORES Y PAGINACIÓN
+   ========================================================= */
+
+.buscador-contenedor {
+    margin-top: 12px;
+    margin-bottom: -10px;
+}
+
+.buscador-contenedor input {
+    width: 100%;
+    max-width: 420px;
+    background-color: #F8FAFC;
+}
+
+/* =========================================================
+   BARRA SUPERIOR DE LISTADOS
+   ========================================================= */
+.barra-superior-listado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.barra-superior-listado .buscador-contenedor {
+    flex: 1;
+    margin: 0;
+}
+
+.barra-superior-listado .buscador-contenedor input {
+    max-width: 100%;
+}
+
+#buscar-contacto,
+#buscar-categoria {
+    width: 100%;
+    max-width: 420px;
+    padding: 14px;
+    border: 1px solid #D1D5DB;
+    border-radius: 12px;
+    margin: 0;
+    background-color: white;
+}
+
+.barra-superior-listado .btn-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginacion-tabla {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    color: #6B7280;
+    font-size: 14px;
+}
+
+.paginacion-botones {
+    display: flex;
+    gap: 8px;
+}
+
+.paginacion-botones button {
+    background-color: white;
+    border: 1px solid #D1D5DB;
+    color: #1F2937;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.paginacion-botones button:hover {
+    background-color: #F3F6FB;
+}
+
+.paginacion-botones button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   10. LOGIN Y REGISTRO
+   ========================================================= */
+
+.body-login {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1E4D8C 0%, #4A90E2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.login-contenedor {
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-tarjeta {
+    background-color: white;
+    padding: 18px 34px;
+    border-radius: 22px;
+    border: 2px solid #1E4D8C;
+    box-shadow: none;
+}
+
+.login-tarjeta h1 {
+    margin: 0;
+    color: #1E4D8C;
+    font-size: 34px;
+    text-align: center;
+}
+
+.login-tarjeta p {
+    color: #6B7280;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.login-tarjeta .btn-principal {
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px 18px;
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: -34px;
+    margin-top: -28px;
+}
+
+.login-logo img {
+    max-width: 290px;
+    width: 100%;
+}
+
+.titulo-login {
+    text-align: center;
+    color: #6B7280 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin-top: -2px !important;
+    margin-bottom: 6px !important;
+}
+
+.texto-enlace {
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 0;
+    color: #6B7280;
+    font-size: 14px;
+}
+
+.texto-enlace a {
+    color: #1E4D8C;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.texto-enlace a:hover {
+    text-decoration: underline;
+}
+
+.checkbox-terminos {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 7px;
+    margin-bottom: 2px;
+}
+
+.terminos-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-terminos input {
+    width: auto;
+    margin: 0;
+}
+
+.checkbox-terminos label {
+    margin: 0;
+    font-weight: normal;
+    color: #6B7280;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   11. PANEL PRINCIPAL
+   ========================================================= */
+
+.panel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 4px;
+}
+
+.panel-card {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: 0.2s;
+    border-left: 5px solid #1E4D8C;
+}
+
+.panel-card:hover {
+    transform: translateY(-3px);
+}
+
+.panel-card h2 {
+    font-size: 34px;
+    color: #1E4D8C;
+    margin: 4px 0 8px 0;
+}
+
+.panel-card .dato-secundario {
+    font-size: 24px;
+}
+
+.panel-card p {
+    margin: 0;
+    color: #6B7280;
+    font-size: 15px;
+}
+
+.panel-card:nth-child(1) {
+    border-left: 5px solid #1F2937;
+}
+
+.panel-card:nth-child(2) {
+    border-left: 5px solid #6B7280;
+}
+
+.panel-card:nth-child(3) {
+    border-left: 5px solid #1F2937;
+}
+
+.actividad-panel {
+    max-width: 100%;
+}
+
+.lista-actividad {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.lista-actividad li {
+    margin-bottom: 9px;
+    line-height: 1.4;
+}
+
+.actividad-texto {
+    display: block;
+    color: #1F2937;
+}
+
+.item-contacto-panel {
+    padding: 14px 0;
+    border-top: 1px solid #E5E7EB;
+}
+
+.item-contacto-panel:first-child {
+    border-top: none;
+}
+
+.item-contacto-panel strong {
+    display: block;
+    color: #1F2937;
+    margin-bottom: 4px;
+}
+
+.item-contacto-panel p {
+    margin: 0;
+    color: #6B7280;
+}
+
+/* =========================================================
+   12. CONTACTOS Y CATEGORÍAS
+   ========================================================= */
+
+.color-categoria {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    border: 1px solid #D1D5DB;
+}
+
+/* Etiquetas visuales de categoría en contactos */
+.etiqueta-categoria {
+    display: inline-block;
+    padding: 5px 11px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.badge-contador {
+    display: inline-block;
+    background-color: #E8F3FF;
+    color: #1E4D8C;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.texto-suave {
+    color: #6B7280;
+    font-style: italic;
+}
+
+.sin-notas {
+    color: #6B7280;
+    font-style: italic;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.colores-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.color-opcion {
+    text-align: center;
+}
+
+.color-opcion input {
+    display: none;
+}
+
+.color-opcion span {
+    display: block;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: 0.2s;
+}
+
+.color-opcion input:checked + span {
+    border-color: #1F2937;
+    transform: scale(1.08);
+}
+
+.color-opcion small {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #6B7280;
+}
+
+/* Color usado con X automática */
+.color-usado span {
+    opacity: 0.35;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.color-usado span::after {
+    content: "✕";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+.color-usado small {
+    color: #EF4444;
+    font-weight: bold;
+}
+
+.categorias-contenido {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 22px;
+    align-items: start;
+}
+
+.categorias-tabla {
+    min-width: 0;
+}
+
+/* 
+   VISTA PREVIA DE CATEGORÍAS
+*/
+
+.vista-previa-categorias {
+    margin-top: 18px;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    padding: 0 16px 16px 16px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.vista-previa-categorias h3 {
+    margin: 0 -16px 14px -16px;
+    padding: 14px 16px;
+    font-size: 16px;
+    color: #1E4D8C;
+    background-color: #F3F6FB;
+    border-bottom: 1px solid #D1D5DB;
+}
+
+.preview-categoria {
+    display: table;
+    margin-bottom: 10px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.estadistica-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-top: 1px solid #E5E7EB;
+}
+
+.estadistica-item:first-child {
+    border-top: none;
+}
+
+.estadistica-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.estadistica-total {
+    font-weight: bold;
+    color: #1E4D8C;
+}
+
+/* Enlace para abrir notas */
+.btn-ver-nota {
+    background: none;
+    border: none;
+    color: #1E4D8C;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.btn-ver-nota:hover {
+    text-decoration: underline;
+}
+
+/* Pop-up de notas */
+
+.modal-nota {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-nota.oculto {
+    display: none;
+}
+
+.modal-nota-contenido {
+    background-color: white;
+    width: 90%;
+    max-width: 430px;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+}
+
+.modal-nota-contenido h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #1E4D8C;
+}
+
+.modal-nota-contenido p {
+    color: #1F2937;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+/* Tarjetas móviles ocultas por defecto en escritorio */
+.contactos-mobile {
+    display: none;
+}
+
+/* Tarjetas móviles de categorías ocultas por defecto en escritorio */
+.categorias-mobile {
+    display: none;
+}
+
+
+/* =========================================================
+   13. MI PERFIL
+   ========================================================= */
+
+.perfil-tarjeta {
+    width: 100%;
+    padding-bottom: 18px;
+}
+
+.perfil-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 54px;
+    align-items: start;
+}
+
+.perfil-foto-bloque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.perfil-foto-circulo {
+    width: 155px;
+    height: 155px;
+    background-color: #D1D5DB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1F2937;
+    font-size: 46px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.perfil-foto-circulo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.enlace-foto {
+    margin-top: 10px;
+    color: #1E4D8C;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.perfil-datos {
+    max-width: 620px;
+    padding-top: 12px;
+}
+
+.perfil-datos label,
+.perfil-password-grid label {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.perfil-datos input {
+    width: 100%;
+    max-width: 420px;
+}
+
+.perfil-datos p {
+    margin-top: 22px;
+    margin-bottom: 22px;
+    font-size: 16px;
+}
+
+.perfil-datos label,
+.perfil-datos input,
+.perfil-datos .ayuda-campo {
+    display: block;
+}
+
+.perfil-datos .ayuda-campo {
+    margin-top: 6px;
+    max-width: 420px;
+}
+
+.subtitulo-perfil {
+    margin-top: 26px;
+    margin-bottom: 10px;
+}
+
+.perfil-password-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.perfil-password-grid input {
+    width: 100%;
+}
+
+.btn-guardar-perfil {
+    width: 100%;
+    margin-top: 22px;
+    margin-bottom: 4px;
+}
+
+.btn-eliminar-foto {
+    margin-top: 8px;
+    background: none;
+    border: none;
+    color: #EF4444;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-eliminar-foto:hover {
+    text-decoration: underline;
+}
+
+/* Enlaces legales del login */
+
+.legal-links {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.legal-links a {
+    color: #1E4D8C;
+    text-decoration: none;
+}
+
+.legal-links a:hover {
+    text-decoration: underline;
+}
+
+.legal-links span {
+    margin: 0 8px;
+    color: #777;
+}
+
+
+/* =========================================================
+   13.5 AJUSTE TOPBAR EN PANTALLAS INTERMEDIAS
+   ========================================================= */
+/* Evita que el buscador global se monte encima del logotipo
+   cuando la pantalla se reduce, pero todavía no entra en móvil. */
+
+@media (min-width: 769px) and (max-width: 1100px) {
+
+    .topbar-logo {
+        width: 260px;
+        flex-shrink: 0;
+    }
+
+    .topbar-logo img {
+        width: 430px;
+        margin-left: -28px;
+    }
+
+    .topbar-buscador {
+        position: static;
+        transform: none;
+        flex: 1;
+        margin-left: 18px;
+        margin-right: 18px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .topbar-buscador input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .topbar-usuario {
+        margin-left: 0;
+        flex-shrink: 0;
+    }
+}
+
+/* =========================================================
+   AJUSTE CATEGORÍAS EN PANTALLAS INTERMEDIAS
+   ========================================================= */
+/* Cuando la pantalla se estrecha, ocultamos la vista previa
+   para que la tabla de categorías tenga más espacio. */
+
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    .categorias-contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .vista-previa-categorias {
+        display: none;
+    }
+}
+
+/* =========================================================
+   AJUSTE TABLAS EN PANTALLAS INTERMEDIAS
+   ========================================================= */
+/* Evita scroll horizontal antes de entrar en responsive móvil. */
+
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    th,
+    td {
+        padding: 13px 10px;
+        font-size: 14px;
+    }
+
+    .btn-editar,
+    .btn-eliminar {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    .etiqueta-categoria {
+        font-size: 12px;
+        padding: 4px 9px;
+    }
+
+    .badge-contador {
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+}
+
+/* En pantallas intermedias muy estrechas ocultamos columnas
+   secundarias de Contactos para evitar scroll horizontal. */
+
+@media (min-width: 769px) and (max-width: 1050px) {
+
+    .contactos-desktop table th:nth-child(3),
+    .contactos-desktop table td:nth-child(3) {
+        display: none;
+    }
+
+    .contactos-desktop table th:nth-child(6),
+    .contactos-desktop table td:nth-child(6) {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   14. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* =====================================================
+       14.1 ESTRUCTURA GENERAL EN MÓVIL
+       ===================================================== */
+
+    .layout {
+        flex-direction: column;
+        padding-top: 70px;
+        padding-bottom: 58px;
+    }
+
+    .contenido {
+        padding: 18px;
+    }
+
+    /* =====================================================
+       14.2 TOPBAR MÓVIL
+       ===================================================== */
+
+    .topbar-app {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 62px;
+        padding: 0 14px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .topbar-logo {
+        width: 44px;
+        height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: visible;
+    }
+
+    .logo-desktop {
+        display: none;
+    }
+
+    .topbar-logo .logo-mobile {
+        display: block !important;
+        width: 80px !important;
+        height: 80px !important;
+        max-width: 80px !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        object-fit: contain;
+        filter: none;
+    }
+
+    .topbar-buscador {
+        display: none;
+    }
+
+    .usuario-nombre {
+        display: none;
+    }
+
+    .topbar-usuario {
+        margin-left: auto;
+        height: 70px;
+        padding-right: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    /* =====================================================
+       14.3 MENÚ INFERIOR MÓVIL
+       ===================================================== */
+
+    .sidebar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        width: 100%;
+        height: 58px;
+        padding: 0;
+        z-index: 1000;
+        border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        height: 100%;
+    }
+
+    .sidebar nav a {
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .sidebar nav a.activo {
+        background-color: #2BB673;
+    }
+
+    .enlace-solo-desktop {
+        display: none !important;
+    }
+
+    .texto-desktop {
+        display: none;
+    }
+
+    .texto-mobile {
+        display: inline;
+    }
+
+    /* =====================================================
+       14.4 CABECERAS Y TARJETAS EN MÓVIL
+       ===================================================== */
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 18px;
+        margin-bottom: 18px;
+    }
+
+    .topbar h1 {
+        font-size: 26px;
+    }
+
+    .tarjeta {
+        padding: 20px;
+    }
+
+    /* =====================================================
+       14.5 GRIDS Y FORMULARIOS EN MÓVIL
+       ===================================================== */
+
+    .panel-grid,
+    .categorias-contenido,
+    .perfil-grid,
+    .perfil-password-grid,
+    .form-grid-contacto {
+        grid-template-columns: 1fr;
+    }
+
+    /* =====================================================
+   PERFIL MÓVIL CENTRADO
+   ===================================================== */
+
+    .perfil-datos {
+        text-align: center;
+        margin-top: -70px;
+    }
+
+    .perfil-datos label,
+    .perfil-datos input,
+    .perfil-datos .ayuda-campo {
+        width: 100%;
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .perfil-datos label,
+    .perfil-datos .ayuda-campo {
+        text-align: left;
+    }
+
+    .perfil-datos input {
+        display: block;
+    }
+
+    .perfil-datos p {
+        text-align: center;
+    }
+
+    .perfil-foto-bloque {
+        margin-bottom: 0;
+    }
+
+    .perfil-acciones-mobile {
+        gap: 12px;
+    }
+
+    /* Menos espacio entre las tres tarjetas resumen en Inicio móvil */
+
+    .panel-grid {
+        gap: 10px;
+    }
+
+    /* Tarjetas resumen del panel en móvil */
+
+    .panel-card {
+        min-height: 96px;
+        padding: 14px 18px;
+    }
+
+    .panel-card h2 {
+        font-size: 34px;
+        margin-bottom: 8px;
+    }
+
+    .panel-card p {
+        font-size: 15px;
+    }
+
+    .acciones-formulario {
+        flex-direction: column;
+    }
+
+    .btn-principal,
+    .btn-secundario {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Menor separación entre tarjetas en móvil */
+
+    .tarjeta {
+        margin-bottom: 18px;
+    }
+
+    /* =====================================================
+       14.6 TABLAS EN MÓVIL
+       ===================================================== */
+
+    table {
+        min-width: 760px;
+    }
+
+    /* =====================================================
+       14.7 LOGIN Y REGISTRO EN MÓVIL
+       ===================================================== */
+
+    .login-logo img {
+        max-width: 250px;
+    }
+
+    .login-tarjeta {
+        padding: 26px;
+    }
+
+    /* =====================================================
+    14.8 PANEL PRINCIPAL EN MÓVIL
+    ===================================================== */
+
+    /* Actividad reciente más compacta en móvil */
+
+    .actividad-panel {
+        padding: 20px;
+    }
+
+    .lista-actividad li:nth-child(n+4) {
+        display: none;
+    }
+
+    .lista-actividad li {
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+
+    /* =====================================================
+   14.9 CONTACTOS EN MÓVIL
+   ===================================================== */
+
+    .contactos-desktop {
+        display: none;
+    }
+
+    .contactos-mobile {
+        display: block;
+    }
+
+    .contacto-card-mobile {
+        background-color: white;
+        border: 1px solid #E5E7EB;
+        border-radius: 14px;
+        padding: 12px;
+        margin-bottom: 12px;
+        box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+    }
+
+    .contacto-card-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: start;
+    }
+
+    .contacto-card-info strong {
+        display: block;
+        color: #1F2937;
+        font-size: 15px;
+        line-height: 1.25;
+        margin-bottom: 8px;
+    }
+
+    .contacto-card-info p {
+        margin: 4px 0;
+        color: #374151;
+        font-size: 14px;
+    }
+
+    .contacto-card-lateral {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 7px;
+        min-width: 120px;
+    }
+
+    .contacto-card-lateral .etiqueta-categoria {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+
+    .contacto-card-lateral .sin-notas,
+    .contacto-card-lateral .btn-ver-nota {
+        font-size: 12px;
+    }
+
+    .contacto-card-botones {
+        display: flex;
+        gap: 6px;
+        margin-top: 2px;
+    }
+
+    .contacto-card-botones .btn-editar,
+    .contacto-card-botones .btn-eliminar {
+        padding: 6px 8px;
+        font-size: 12px;
+        margin-right: 0;
+    }
+
+    /* =====================================================
+   14.10 CATEGORÍAS EN MÓVIL
+   ===================================================== */
+
+    .categorias-desktop,
+    .vista-previa-categorias {
+        display: none;
+    }
+
+    .categorias-mobile {
+        display: block;
+    }
+
+    .categoria-card-mobile {
+        background-color: white;
+        border: 1px solid #E5E7EB;
+        border-radius: 14px;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        box-shadow: 0 5px 12px rgba(15, 23, 42, 0.07);
+    }
+
+    .categoria-card-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .categoria-card-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .categoria-card-info .etiqueta-categoria {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+
+    .categoria-card-contactos {
+        color: #6B7280;
+        font-size: 12px;
+    }
+
+    .categoria-card-botones {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .categoria-card-botones .btn-editar,
+    .categoria-card-botones .btn-eliminar {
+        padding: 6px 8px;
+        font-size: 12px;
+        margin-right: 0;
+    }
+
+    /* =====================================================
+   14.11 BARRA SUPERIOR DE LISTADOS EN MÓVIL
+   ===================================================== */
+    /* Buscador y botón en la misma línea y con menos espacio
+    respecto a las tarjetas inferiores */
+
+    .barra-superior-listado {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .barra-superior-listado .buscador-contenedor {
+        flex: 1;
+        margin: 0;
+    }
+
+    .barra-superior-listado .buscador-contenedor input {
+        width: 100%;
+        height: 42px;
+        padding: 0 12px;
+        font-size: 13px;
+        margin: 0;
+    }
+
+    .barra-superior-listado .btn-principal {
+        width: auto;
+        height: 42px;
+        padding: 0 13px;
+        font-size: 13px;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* =====================================================
+   OCULTAR PAGINACIÓN EN CATEGORÍAS MÓVIL
+   ===================================================== */
+    .categorias-mobile + .paginacion-tabla {
+        display: none;
+    }
+
+    /* Reducir espacio entre tarjetas del panel principal en móvil */
+    .panel-grid {
+        gap: 6px;
+    }
+
+    /* Contactos móvil: tarjetas algo más altas y solo 3 por página desde JS */
+    .contacto-card-mobile {
+        padding: 16px 14px;
+        margin-bottom: 14px;
+    }
+
+    .contacto-card-info strong {
+        margin-bottom: 10px;
+    }
+
+    .contacto-card-info p {
+        margin: 5px 0;
+    }
+
+    /* Arreglo botones formularios en móvil */
+    .acciones-formulario,
+    .acciones-derecha {
+        flex-direction: column;
+    }
+
+    .acciones-derecha .btn-principal,
+    .acciones-derecha .btn-secundario,
+    .acciones-formulario .btn-principal,
+    .acciones-formulario .btn-secundario {
+        flex: none;
+        width: 100%;
+        height: auto;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* En móvil evitamos movimiento en la tarjeta general */
+    .tarjeta:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .panel-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+        border-color: #D1D5DB;
+    }
+
+    /* En móvil damos interacción a las tarjetas internas */
+    .contacto-card-mobile:hover,
+    .categoria-card-mobile:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+        border-color: #D1D5DB;
+    }
+
+    /* Separación entre Exportar CSV y Cerrar sesión en perfil móvil */
+    .perfil-acciones-mobile .btn-principal {
+        margin-bottom: 12px;
+    }
+
+    .perfil-acciones-mobile .btn-secundario {
+        margin-top: 0;
+    }
+    
+}
